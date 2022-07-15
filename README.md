@@ -5,7 +5,7 @@ We should be able to:
 - Create a "one-liner" card.
   - We should pop up a modal, asking for the question and the answer.
 - Create a Regular card 
-  - We should pop up a complex modal, as there's a lot more stuff we can put in here.
+  - We should pop up a slightly bigger text box, as there's a lot more stuff we can put in here.
 
 ## Development
 
