@@ -32,6 +32,8 @@ We should be able to:
 - Create a long-form flashcard (I'm probably going to need a different modal for that)
 ### To Do 
 - Create a release?
+- Pretty sure I could rebuild flashcard.ts to be a little more flexible, that way I can also use it for spaced repetition. I'm probably not going to be using that one in a hurry, but it's nice to know that I can.
+- Also, there's a lot of repetition, I could probably clean it up a little and learn a little about generics in Typescript.
 
 ## Releasing new releases
 

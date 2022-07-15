@@ -1,5 +1,5 @@
 export interface NeuraCachePluginSettings {
-	doubleColonSeparator: boolean;
+    doubleColonSeparator: boolean;
     regularCardEndLine: string;
     flashcardTag: string;
     spacedTag: string;
