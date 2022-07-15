@@ -1,13 +1,12 @@
 import { Editor, Plugin } from 'obsidian';
-import { FlashCardModal } from "./flashcardmodal";
-import { NeuraCacheSettingsTab } from "./neuracachesettingstab";
-
-interface NeuraCachePluginSettings {
-	mySetting: string;
-}
+import { FlashCardModal } from "./modals/simpleflashcard";
+import { NeuraCachePluginSettings } from 'settings/interface';
+import { NeuraCacheSettingsTab } from 'settings/settings';
 
 const DEFAULT_SETTINGS: NeuraCachePluginSettings = {
-	mySetting: 'default'
+	doubleColonSeparator: false,
+	flashcardTag: "#flashcard",
+	spacedTag: "#spaced"
 }
 
 export default class NeuraCacheFlashcardPlugin extends Plugin {
@@ -15,14 +14,18 @@ export default class NeuraCacheFlashcardPlugin extends Plugin {
 
 	async onload() {
 		await this.loadSettings();
-		
+
 		this.addCommand({
 			id: 'open-oneliner-flashcard-modal',
 			name: 'Create a one-liner flashcard.',
 			editorCallback: (editor: Editor) => {
+
+				const seperator = this.settings.doubleColonSeparator ? "::" : ":";
+
 				const onSubmit = (question: string, answer: string) => {
-					editor.replaceSelection(`${question} : ${answer} #flashcard`);
+					editor.replaceSelection(`${question}${seperator}${answer} ${this.settings.flashcardTag}`);
 				}
+
 				new FlashCardModal(this.app, onSubmit).open();
 			}
 		});

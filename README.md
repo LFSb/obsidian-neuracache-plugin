@@ -18,6 +18,20 @@ We should be able to:
 - Enable plugin in settings window.
 - For updates to the Obsidian API run `npm update` in the command line under your repo folder.
 
+## Building
+If you want to just build a local version, you're also going to need typescript. 
+- After getting typescript up and running, run `npm run build` to make a one-time build.
+
+## Feature list
+### Done
+- Create a one-liner flashcard.
+- Implement settings to set:
+  - The one-liner separator (: or ::)
+  - Flashcard tag (default #flashcard)
+  - Spaced Repetition tag (default #spaced)
+### To Do 
+- Create a long-form flashcard (I'm probably going to need a different modal for that)
+
 ## Releasing new releases
 
 - Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
