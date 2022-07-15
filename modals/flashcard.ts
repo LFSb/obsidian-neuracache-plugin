@@ -1,19 +1,21 @@
 import { App, Modal, Setting } from "obsidian";
 
-export class FlashCardModal extends Modal {
+export class SimpleFlashCardModal extends Modal {
 	question: string;
 	answer: string;
+	isOneLiner: boolean;
 	onSubmit: (question: string, answer: string) => void;
 
-	constructor(app: App, onSubmit: (question: string, answer: string) => void) {
+	constructor(app: App, onSubmit: (question: string, answer: string) => void, isOneLiner: boolean) {
 		super(app);
 		this.onSubmit = onSubmit;
+		this.isOneLiner = isOneLiner;
 	}
 
 	onOpen() {
 		const {contentEl} = this;
 		
-		contentEl.createEl("h1", { text: "Create a one-liner flashcard."})
+		const header = this.isOneLiner ? "Create a one-liner flashcard." : "Create a regular flashcard"
 
 		new Setting(contentEl)
 			.setName("Enter a Question:")
@@ -22,12 +24,25 @@ export class FlashCardModal extends Modal {
 					this.question = value;
 				}));
 
-		new Setting(contentEl)
+		if(this.isOneLiner)
+		{
+			new Setting(contentEl)
 			.setName("Enter the Answer:")
 			.addText((text) =>
 				text.onChange((value) => {
 					this.answer = value;
 				}));
+		}
+		else
+		{
+			new Setting(contentEl)
+			.setName("Enter the Answer:")
+			.addTextArea((text) =>
+				text.onChange((value) => {
+					this.answer = value;
+				}));
+		}
+		
 		new Setting(contentEl)
 			.addButton((btn) =>
 				btn

@@ -28,6 +28,17 @@ export class NeuraCacheSettingsTab extends PluginSettingTab {
         }));
 
         new Setting(containerEl)
+            .setName('Regular Card endline format.')
+            .setDesc('This value will be used to end a regular flashcard. Default value: - - -')
+                .addText(text => text
+                    .setValue(this.plugin.settings.regularCardEndLine)
+                    .onChange(async (value) => {
+                        console.debug("Set regularCardEndLine to " + value);
+                        this.plugin.settings.regularCardEndLine = value;
+                        await this.plugin.saveSettings();
+        }));
+
+        new Setting(containerEl)
             .setName('Flashcard tag.')
             .setDesc('Tag that will be picked up by NeuraCache as a flashcard. Default value: #flashcard')
                 .addText(text => text
