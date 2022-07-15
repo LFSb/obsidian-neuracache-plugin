@@ -16,14 +16,14 @@ export class FlashCardModal extends Modal {
 		contentEl.createEl("h1", { text: "Create a one-liner flashcard."})
 
 		new Setting(contentEl)
-			.setName("Question")
+			.setName("Enter a Question")
 			.addText((text) => 
 				text.onChange((value) => {
 					this.question = value;
 				}));
 
 		new Setting(contentEl)
-			.setName("Answer")
+			.setName("Enter the Answer")
 			.addText((text) =>
 				text.onChange((value) => {
 					this.answer = value;
@@ -31,7 +31,7 @@ export class FlashCardModal extends Modal {
 		new Setting(contentEl)
 			.addButton((btn) =>
 				btn
-					.setButtonText("Create")
+					.setButtonText("Create the flashcard!")
 					.setCta()
 					.onClick(() => {
 						this.close();
