@@ -18,9 +18,9 @@ We should be able to:
 - Enable plugin in settings window.
 - For updates to the Obsidian API run `npm update` in the command line under your repo folder.
 
-## Building
-If you want to just build a local version, you're also going to need typescript. 
-- After getting typescript up and running, run `npm run build` to make a one-time build.
+### My own development flow
+- From my production vault, pull in the changes from origin.
+- Then run `npm run build`.
 
 ## Feature list
 ### Done
@@ -29,8 +29,9 @@ If you want to just build a local version, you're also going to need typescript.
   - The one-liner separator (: or ::)
   - Flashcard tag (default #flashcard)
   - Spaced Repetition tag (default #spaced)
-### To Do 
 - Create a long-form flashcard (I'm probably going to need a different modal for that)
+### To Do 
+- Create a release?
 
 ## Releasing new releases
 
