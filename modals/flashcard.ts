@@ -1,6 +1,6 @@
 import { App, Modal, Setting } from "obsidian";
 
-export class SimpleFlashCardModal extends Modal {
+export class FlashCardModal extends Modal {
 	question: string;
 	answer: string;
 	isOneLiner: boolean;
@@ -13,36 +13,36 @@ export class SimpleFlashCardModal extends Modal {
 	}
 
 	onOpen() {
-		const {contentEl} = this;
-		
+		const { contentEl } = this;
+
 		const header = this.isOneLiner ? "Create a one-liner flashcard." : "Create a regular flashcard"
+
+		contentEl.createEl("h1", { text: header });
 
 		new Setting(contentEl)
 			.setName("Enter a Question:")
-			.addText((text) => 
+			.addText((text) =>
 				text.onChange((value) => {
 					this.question = value;
 				}));
 
-		if(this.isOneLiner)
-		{
+		if (this.isOneLiner) {
 			new Setting(contentEl)
-			.setName("Enter the Answer:")
-			.addText((text) =>
-				text.onChange((value) => {
-					this.answer = value;
-				}));
+				.setName("Enter the Answer:")
+				.addText((text) =>
+					text.onChange((value) => {
+						this.answer = value;
+					}));
 		}
-		else
-		{
+		else {
 			new Setting(contentEl)
-			.setName("Enter the Answer:")
-			.addTextArea((text) =>
-				text.onChange((value) => {
-					this.answer = value;
-				}));
+				.setName("Enter the Answer:")
+				.addTextArea((text) =>
+					text.onChange((value) => {
+						this.answer = value;
+					}));
 		}
-		
+
 		new Setting(contentEl)
 			.addButton((btn) =>
 				btn
@@ -55,7 +55,7 @@ export class SimpleFlashCardModal extends Modal {
 	}
 
 	onClose() {
-		const {contentEl} = this;
+		const { contentEl } = this;
 		contentEl.empty();
 	}
 }

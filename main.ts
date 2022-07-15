@@ -1,5 +1,5 @@
 import { Editor, Plugin } from 'obsidian';
-import { SimpleFlashCardModal as FlashCardModal } from "./modals/flashcard";
+import { FlashCardModal as FlashCardModal } from "./modals/flashcard";
 import { NeuraCachePluginSettings } from 'settings/interface';
 import { NeuraCacheSettingsTab } from 'settings/settings';
 
