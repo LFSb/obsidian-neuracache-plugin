@@ -18,10 +18,6 @@ We should be able to:
 - Enable plugin in settings window.
 - For updates to the Obsidian API run `npm update` in the command line under your repo folder.
 
-### My own development flow
-- From my production vault, pull in the changes from origin.
-- Then run `npm run build`.
-
 ## Feature list
 ### Done
 - Create a one-liner flashcard.
@@ -34,6 +30,7 @@ We should be able to:
 - Create a release?
 - Pretty sure I could rebuild flashcard.ts to be a little more flexible, that way I can also use it for spaced repetition. I'm probably not going to be using that one in a hurry, but it's nice to know that I can.
 - Also, there's a lot of repetition, I could probably clean it up a little and learn a little about generics in Typescript.
+- Also, there should be a better way for local development that doesn't require copying .js files over my filesystem, but alas.
 
 ## Releasing new releases
 
