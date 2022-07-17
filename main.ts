@@ -41,7 +41,19 @@ export default class NeuraCacheFlashcardPlugin extends Plugin {
 
 				new FlashCardModal(this.app, onSubmit, false).open();
 			}
-		})
+		});
+
+		this.addCommand({
+			id: 'open-spaced-repetition-modal',
+			name: 'Create a spaced repetition card.',
+			editorCallback: (editor: Editor) => {
+				const onSubmit = (question: string, answer: string) => {
+					editor.replaceSelection(`${this.settings.spacedTag}\n${question}\n${answer}\n${this.settings.regularCardEndLine}\n`);
+				}
+
+				new FlashCardModal(this.app, onSubmit, false).open();
+			}
+		});
 
 		this.addSettingTab(new NeuraCacheSettingsTab(this.app, this));
 	}
