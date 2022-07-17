@@ -20,6 +20,3 @@ data.json
 
 # Exclude macOS Finder (System Explorer) View States
 .DS_Store
-
-# Don't include my custom build script
-release.sh
