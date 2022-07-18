@@ -24,7 +24,7 @@ export default class NeuraCacheFlashcardPlugin extends Plugin {
 				const seperator = this.settings.doubleColonSeparator ? "::" : ":";
 
 				const onSubmit = (question: string, answer: string) => {
-					editor.replaceSelection(`${question}${seperator}${answer} ${this.settings.flashcardTag}`);
+					editor.replaceSelection(`${question}${seperator}${answer} ${this.settings.flashcardTag}\n`);
 				}
 
 				new FlashCardModal(this.app, onSubmit, true).open();
